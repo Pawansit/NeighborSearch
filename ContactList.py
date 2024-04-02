@@ -2,7 +2,13 @@ import os.path
 import biotite.structure.io.pdbx as pdbx
 import biotite.structure as Struc
 
-
+def unique_list(A):
+	uniqL = []
+	
+	for m in A:
+		if m not in uniqL:
+			uniqL.append(m)	
+	return(uniqL)
 
 def NeighbourList(PDBFile, ResID, chainID, cutoff) :
 
@@ -10,28 +16,28 @@ def NeighbourList(PDBFile, ResID, chainID, cutoff) :
     file = pdbx.PDBxFile.read(PDBFile)
     Structure = pdbx.get_structure(file)[0]
 
-    Cell_list = Struc.CellList(Structure, 6)
+    Cell_list = Struc.CellList(Structure, 10)
 
-    Ref_ligand = Structure[(Structure.chain_id == chainID) & (Structure.res_id == ResID)]
-    Ref_ligand_center = Struc.centroid(Ref_ligand)
+    Ref_Res = Structure[(Structure.chain_id == chainID) & (Structure.res_id == ResID)]
+    Ref_Res_center = Struc.centroid(Ref_Res)
 
-    Indices = Cell_list.get_atoms(Ref_ligand_center, radius=cutoff)
+    Indices = Cell_list.get_atoms(Ref_Res_center, radius=cutoff)
     ContactList = Structure[Indices]
 
     Ids, Names = Struc.get_residues(ContactList)
-    Chainids = Struc.get_chains(ContactList)
+    GroupID = {}
+    for i, j in zip(Ids, Names):
+          GroupID[i] = j
 
-    R1 = Struc.centroid(ContactList[ContactList.res_id == ResID])
-
-    for m1, m2, m3 in zip(Ids, Names, Chainids):
-        R2 = Struc.centroid(ContactList[ContactList.res_id == m1])
-        if m1 == ResID: continue
-        print(m1, m2, m3,Struc.distance(R1, R2), sep = "\t")
+    for Res_id, Res_name in GroupID.items():
+        R2 = Struc.centroid(ContactList[ContactList.res_id == Res_id])
+        if Res_id == ResID: continue
+        print(Res_id, Res_name,round(Struc.distance(Ref_Res_center, R2),2), sep = "\t")
 
 
 if __name__ == "__main__":
-    pdb_file_path = "../../../PDBAPI/ISDA_Collections/ForTestingdataRecord/6lu7.cif"
-    Residueid = 6
-    Chainid = "C"
+    pdb_file_path = "../../../PDBAPI/ISDA_Collections/ForTestingdataRecord/3lxe.cif"
+    Residueid = 261
+    Chainid = "B"
     Cutoff = 6
     NeighbourList(pdb_file_path, Residueid, Chainid, Cutoff)
