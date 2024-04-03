@@ -1,0 +1,24 @@
+read
+   mol pqr Pawan2/pqr_files/1FK7.pqr
+end
+elec name solv
+   mg-manual
+   dime 97 129 65
+   glen 54 72 62
+   gcent 23 36 25
+   mol 1
+   lpbe
+   bcfl sdh
+   srfm smol
+   chgm spl2
+   ion 1 0.15 2.0
+   ion -1 0.15 2.0
+   pdie 20.00
+   sdie 78.54
+   sdens 10.0
+   srad 0.0
+   swin 0.3
+   temp 298.15
+   write pot dx Pawan2/dx_files/1FK7
+end
+quit

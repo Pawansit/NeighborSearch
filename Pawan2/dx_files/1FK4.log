@@ -1,0 +1,21 @@
+Wed Apr  3 17:00:22 2024
+
+elec name solv
+    mg-manual
+    mol 1
+    dime 97 129 65
+    lpbe
+    ion 2.000 1.000 0.150
+    ion 2.000 -1.000 0.150
+    pdie 20.000
+    sdie 78.540
+    srfm smol
+    srad 0.000
+    bcfl sdh
+    temp 298.150
+    calc
+        id 1
+        grid 0.562 0.562 0.969
+        glen 54.000 72.000 62.000
+    end
+end
