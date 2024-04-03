@@ -10,17 +10,19 @@ def unique_list(A):
 			uniqL.append(m)	
 	return(uniqL)
 
-def NeighbourList(PDBFile, ResID, chainID, cutoff) :
+def NeighbourResidues(PDBFile, ResID, chainID, cutoff) :
 
-
+    ## Parse and get the structure coordinates
     file = pdbx.PDBxFile.read(PDBFile)
     Structure = pdbx.get_structure(file)[0]
 
+    ## Initialize the Cell List 
     Cell_list = Struc.CellList(Structure, 10)
 
-    Ref_Res = Structure[(Structure.chain_id == chainID) & (Structure.res_id == ResID)]
-    Ref_Res_center = Struc.centroid(Ref_Res)
+    ## Calculate the Centroid of the Reference Residue/Ligand Position
+    Ref_Res_center = Struc.centroid(Structure[(Structure.chain_id == chainID) & (Structure.res_id == ResID)])
 
+    ## Get the Surrounding atoms indeices at particular distance cutoff
     Indices = Cell_list.get_atoms(Ref_Res_center, radius=cutoff)
     ContactList = Structure[Indices]
 
@@ -36,8 +38,8 @@ def NeighbourList(PDBFile, ResID, chainID, cutoff) :
 
 
 if __name__ == "__main__":
-    pdb_file_path = "../../../PDBAPI/ISDA_Collections/ForTestingdataRecord/3lxe.cif"
-    Residueid = 261
-    Chainid = "B"
-    Cutoff = 6
-    NeighbourList(pdb_file_path, Residueid, Chainid, Cutoff)
+    pdb_cif_file = "../../../PDBAPI/ISDA_Collections/ForTestingdataRecord/1a00.cif"
+    Residueid = 142
+    Chainid = "A"
+    Cutoff = 6.5
+    NeighbourResidues(pdb_cif_file, Residueid, Chainid, Cutoff)
