@@ -38,3 +38,31 @@
 2024-04-03 17:07:00,856 INFO:main.py:768:main_driver:Checking and transforming input arguments.
 2024-04-03 17:07:00,856 INFO:main.py:772:main_driver:Loading topology files.
 2024-04-03 17:07:00,892 INFO:main.py:774:main_driver:Loading molecule: Pawan2/pdb_files/1FK2
+2024-04-03 17:07:05,704 INFO:main.py:779:main_driver:Setting up molecule.
+2024-04-03 17:07:05,707 WARNING:biomolecule.py:992:create_residue:Unable to find amino or nucleic acid definition for MYR.  Parsing as new residue.
+2024-04-03 17:07:05,708 WARNING:biomolecule.py:992:create_residue:Unable to find amino or nucleic acid definition for FMT.  Parsing as new residue.
+2024-04-03 17:07:05,708 INFO:main.py:417:setup_molecule:Created biomolecule object with 183 residues and 733 atoms.
+2024-04-03 17:07:05,708 INFO:main.py:783:main_driver:Setting termini states for biomolecule chains.
+2024-04-03 17:07:05,710 INFO:main.py:613:non_trivial:Loading forcefield.
+2024-04-03 17:07:05,717 INFO:main.py:617:non_trivial:Loading hydrogen topology definitions.
+2024-04-03 17:07:05,718 INFO:main.py:468:is_repairable:This biomolecule is clean.  No repair needed.
+2024-04-03 17:07:05,718 INFO:main.py:632:non_trivial:Updating disulfide bridges.
+2024-04-03 17:07:05,719 INFO:main.py:635:non_trivial:Debumping biomolecule.
+2024-04-03 17:07:05,731 INFO:main.py:658:non_trivial:Adding hydrogens to biomolecule.
+2024-04-03 17:07:05,792 INFO:main.py:661:non_trivial:Debumping biomolecule (again).
+2024-04-03 17:07:05,973 INFO:main.py:663:non_trivial:Optimizing hydrogen bonds
+2024-04-03 17:07:06,051 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 330 skipped when optimizing H2 in HOH A 226
+2024-04-03 17:07:06,132 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 300 skipped when optimizing H2 in HOH A 316
+2024-04-03 17:07:06,139 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H1 in HOH A 222 skipped when optimizing H2 in HOH A 299
+2024-04-03 17:07:06,140 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H1 in HOH A 222 skipped when optimizing H2 in HOH A 299
+2024-04-03 17:07:06,140 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H1 in HOH A 222 skipped when optimizing H2 in HOH A 299
+2024-04-03 17:07:06,141 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H1 in HOH A 222 skipped when optimizing H2 in HOH A 299
+2024-04-03 17:07:06,142 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H1 in HOH A 222 skipped when optimizing H2 in HOH A 299
+2024-04-03 17:07:06,162 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 314 skipped when optimizing H1 in HOH A 223
+2024-04-03 17:07:06,162 WARNING:debump.py:354:get_closest_atom:Skipped atom during water optimization: H2 in HOH A 314 skipped when optimizing H1 in HOH A 223
+2024-04-03 17:07:06,166 WARNING:io.py:40:filter:Suppressing further "Skipped atom during water optimization" messages
+2024-04-03 17:07:07,103 INFO:main.py:675:non_trivial:Applying force field to biomolecule states.
+2024-04-03 17:07:07,104 INFO:main.py:722:non_trivial:Regenerating headers.
+2024-04-03 17:07:07,104 INFO:main.py:747:non_trivial:Regenerating PDB lines.
+2024-04-03 17:07:07,110 WARNING:main.py:320:print_pqr:Ignoring 1370 header lines in output.
+2024-04-03 17:07:07,110 WARNING:main.py:324:print_pqr:Ignoring 19 missing lines in output.
